@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -98,5 +99,13 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         Log.i(TAG,"destroyed");
 
+    }
+
+    public void handleClick(View view) {//2
+        String string = emailEditText.getText().toString();
+        Intent intent = new Intent();
+        intent.putExtra("email",string);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 }
