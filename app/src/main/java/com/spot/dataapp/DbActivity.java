@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.spot.dataapp.database.DbAccessObject;
@@ -26,6 +27,9 @@ public class DbActivity extends AppCompatActivity {
     public void DbHandler(View view) {
         switch (view.getId()){
             case R.id.buttonget:
+                String result =  dbAccessObject.readRow();
+                TextView resTextView = findViewById(R.id.textViewdb);
+                resTextView.setText(result);
                 break;
             case R.id.buttonSet://3
                 String title = titleEditText.getText().toString();

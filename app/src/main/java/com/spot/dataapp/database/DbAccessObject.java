@@ -2,6 +2,7 @@ package com.spot.dataapp.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.spot.dataapp.database.FeedReaderContract.FeedEntry;
 
@@ -29,7 +30,17 @@ public class DbAccessObject {
         database.insert(FeedEntry.TABLE_NAME,null,values);
 
     }
-    public void readRow(){}
+    public String readRow(){
+      Cursor cursor = database.query(FeedEntry.TABLE_NAME,null,null,
+                null,null,null,null);
+      cursor.moveToLast();
+      int titleIndex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_TITLE);//1
+         int subtitleindex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_SUBTITLE);
+
+         String result = cursor.getString(titleIndex)+"\n"+cursor.getString(subtitleindex);
+
+        return result;
+    }
     public void updateRow(){}
     public void deleteRow(){}
 
