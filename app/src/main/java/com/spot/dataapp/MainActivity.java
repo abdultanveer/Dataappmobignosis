@@ -26,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         nameEditText = findViewById(R.id.editText);  //taking handles of widgets
         emailEditText = findViewById(R.id.editText2);//a = 10;
         TextView resTextView = findViewById(R.id.textViewres);
-        Intent startingIntent = getIntent();///this will get the intent which started this[mainactivity].
+        /*Intent startingIntent = getIntent();///this will get the intent which started this[mainactivity].
         Bundle extras = startingIntent.getExtras();
         String data = extras.getString("profession");
-        resTextView.setText(data);
+        resTextView.setText(data);*/
     }
 
     @Override
