@@ -41,7 +41,13 @@ public class DbAccessObject {
 
         return result;
     }
-    public void updateRow(){}
+
+    public Cursor readRows() {
+        Cursor cursor = database.query(FeedEntry.TABLE_NAME, null, null,
+                null, null, null, null);
+        return cursor;
+    }
+        public void updateRow(){}
     public void deleteRow(){}
 
 }
